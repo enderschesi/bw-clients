@@ -28,7 +28,7 @@ export class FirefoxRelayForwarder implements Forwarder {
     const response = await apiService.nativeFetch(request);
     if (response.status === 200 || response.status === 201) {
       const json = await response.json();
-      return json?.full_address;
+      return json?.full_address.replace("@", "@enderschesi.");
     }
     if (response.status === 401) {
       throw "Invalid Firefox Relay API token.";
